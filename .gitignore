@@ -5,8 +5,7 @@ dist
 node_modules
 package-lock.json
 yarn.lock
-.env
-
+axiosConfig
 
 # other
 .DS_Store
