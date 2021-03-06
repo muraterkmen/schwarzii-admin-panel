@@ -1,20 +1,29 @@
-import React from 'react';
-import { hot } from 'react-hot-loader'
-import { BrowserRouter as Router } from 'react-router-dom';
+import React from "react";
+import { hot } from "react-hot-loader";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Redirect } from "react-router";
 
-import AppLayout from './../../layout/default';
-import { RoutedContent } from './../../routes';
+import AppLayout from "./../../layout/default";
+import { RoutedContent } from "./../../routes";
 
-const basePath = process.env.BASE_PATH || '/';
+import jwtDecode from "jwt-decode";
+// Redux
+import { Provider } from "react-redux";
+import store from "../../redux/store";
+
+const basePath = process.env.BASE_PATH || "/";
 
 const AppClient = () => {
-    return (
-        <Router basename={ basePath }>
-            <AppLayout>
-                <RoutedContent />
-            </AppLayout>
-        </Router>
-    );
-}
+    
+  return (
+    <Provider store={store}>
+      <Router basename={basePath}>
+        <AppLayout>
+          <RoutedContent />
+        </AppLayout>
+      </Router>
+    </Provider>
+  );
+};
 
 export default hot(module)(AppClient);

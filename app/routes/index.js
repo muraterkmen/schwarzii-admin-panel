@@ -99,7 +99,7 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Success from './Pages/Success';
 import Timeline from './Pages/Timeline';
-
+import PrivateRoute from './PrivateRoute'
 import Icons from './Icons';
 
 // ----------- Layout Imports ---------------
@@ -116,13 +116,13 @@ export const RoutedContent = () => {
         <Switch>
             <Redirect from="/" to="/dashboards/projects" exact />
             
-            <Route path="/dashboards/analytics" exact component={Analytics} />
-            <Route path="/dashboards/projects" exact component={ProjectsDashboard} />
-            <Route path="/dashboards/system" exact component={System} />
-            <Route path="/dashboards/monitor" exact component={Monitor} />
-            <Route path="/dashboards/financial" exact component={Financial} />
-            <Route path="/dashboards/stock" exact component={Stock} />
-            <Route path="/dashboards/reports" exact component={Reports} />
+            <PrivateRoute path="/dashboards/analytics" exact component={Analytics} />
+            <PrivateRoute path="/dashboards/projects" exact component={ProjectsDashboard} />
+            <PrivateRoute path="/dashboards/system" exact component={System} />
+            <PrivateRoute path="/dashboards/monitor" exact component={Monitor} />
+            <PrivateRoute path="/dashboards/financial" exact component={Financial} />
+            <PrivateRoute path="/dashboards/stock" exact component={Stock} />
+            <PrivateRoute path="/dashboards/reports" exact component={Reports} />
 
             <Route path='/widgets' exact component={Widgets} />
             
